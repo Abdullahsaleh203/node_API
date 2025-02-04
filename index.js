@@ -11,14 +11,16 @@ mongoose.connect(DB)
     .then((result) => { console.log('connected to db .....') })
     .catch((err) => { console.log(err) });
 
-dotenv.config();
-const PORT = process.env.PORT || 3000;
-
 // Import routes
 const authRoute = require('./routes/auth');
 
-//  Route Middleware
+dotenv.config();
+const PORT = process.env.PORT || 3000;
 
+
+// Middleware
+app.use(express.json());
+//  Route Middleware
 app.use('/api/user', authRoute);
 
 

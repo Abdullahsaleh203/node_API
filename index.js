@@ -1,12 +1,15 @@
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const app = express();
 
 
 
 // Connect to DB 
+dotenv.config();
 const DB = process.env.DB_CONNECT;
+const PORT = process.env.PORT || 3000;
+
 mongoose.connect(DB)
     .then((result) => { console.log('connected to db .....') })
     .catch((err) => { console.log(err) });
@@ -14,8 +17,6 @@ mongoose.connect(DB)
 // Import routes
 const authRoute = require('./routes/auth');
 
-dotenv.config();
-const PORT = process.env.PORT || 3000;
 
 
 // Middleware

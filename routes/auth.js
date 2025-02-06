@@ -13,7 +13,7 @@ const schema = Joi.object({
     .min(6).required()
     .email(),
     password : Joi.string()
-    .min(6).
+    .min(8).
     required()
 })
 

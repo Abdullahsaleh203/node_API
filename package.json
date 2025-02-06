@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --env-file=.env index.js"
   },
-  "author": "",
+  "author": "Abdallah Saleh",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

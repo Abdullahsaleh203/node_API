@@ -1,7 +1,7 @@
 {
   "name": "node_api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Build A Node.js API Authentication With JWT",
   "main": "index.js",
   "type": "module",
   "scripts": {

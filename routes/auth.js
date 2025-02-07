@@ -1,10 +1,10 @@
 import express from 'express';
-import User, { findOne } from '../model/User';
+import User from '../model/User.js';
 
 const router = express.Router();
 import { genSalt, hash, compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
-import { registerValidation, loginValidation } from '../validation';
+import { registerValidation, loginValidation } from '../validation.js';
 
 router.post('/register', async (req, res) => {
     const { error } = registerValidation(req.body);

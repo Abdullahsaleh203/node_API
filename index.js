@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const app = express();
-
+const authRoute = require('./routes/auth');
+const authPost = require('./routes/post');
 
 
 // Connect to DB 
@@ -14,16 +15,16 @@ mongoose.connect(DB)
     .then((result) => { console.log('connected to db .....') })
     .catch((err) => { console.log(err) });
 
-// Import routes
-const authRoute = require('./routes/auth');
+
 
 
 
 // Middleware
 app.use(express.json());
+
 //  Route Middleware
 app.use('/api/user', authRoute);
-
+app.use('/api/posts', authPost );
 
 
 app.listen(PORT, () => {

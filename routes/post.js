@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const verify = require('./verifyToken');
+import verify from './verifyToken';
 
-module.exports = router.get('/', verify, (req, res) => {
+export default router.get('/', verify, (req, res) => {
     res.json({
         posts: {
             title: 'My first post',

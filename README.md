@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This project is a Node.js API Authentication With JWT Tutorial that provides various endpoints for managing resources. It is built using Express.js and follows RESTful principles.
+This project is a Node.js API Authentication With JWT  that provides various endpoints for managing resources. It is built using Express.js and follows RESTful principles.
 
 ## Installation
 

@@ -1,8 +1,5 @@
 const Joi = require('joi');
 
-
-
-
 // Register VALIDATION
 const registerValidation = data => {
     const schema = Joi.object({
@@ -34,4 +31,3 @@ const loginValidation = (data) => {
 }
 
 module.exports = {registerValidation , loginValidation};
-// model.exports.loginValidation = loginValidation;

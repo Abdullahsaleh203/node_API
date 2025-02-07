@@ -3,27 +3,8 @@ const User = require('../model/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { registerValidation, loginValidation } = require('../validation');
-// const Joi = require('joi');
-
-
-// const schema = Joi.object({
-//     name : Joi.string()
-//     .min(6)
-//     .required(),
-//     email : Joi.string()
-//     .min(6).required()
-//     .email(),
-//     password : Joi.string()
-//     .min(8).
-//     required()
-// })
 
 router.post('/register',async (req, res) => {
-    // Validate the data before we make a user
-    // const validation = schema.validate(req.body, schema);
-    // res.send(validation);
-
-    // const { error } = schema.validate(req.body);
     const { error } = registerValidation(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
@@ -62,7 +43,6 @@ router.post('/login', async (req, res) => {
     if (!validPass) return res.status(400).send('Invalid password')
     const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET,{ expiresIn: '0.5h' });
     res.header('auth-token', token).send(token);
-    // res.send('Logged in!');
 });
 
 module.exports = router;

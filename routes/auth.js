@@ -11,7 +11,7 @@ router.post('/register', async (req, res) => {
     if (error) return res.status(400).send(error.details[0].message);
 
     // Check if the user is already in the database
-    const emailExist = await findOne({ email: req.body.email });
+    const emailExist = await User.findOne({ email: req.body.email });
     if (emailExist) return res.status(400).send('Email already exists');
 
     // Hash the password
@@ -38,7 +38,7 @@ router.post('/login', async (req, res) => {
     const { error } = loginValidation(req.body);
     if (error) return res.status(400).send(error.details[0].message);
     // Check if the email exists
-    const user = await findOne({ email: req.body.email });
+    const user = await User.findOne({ email: req.body.email });
     if (!user) return res.status(400).send('Email or password is wrong');
     // Password is correct
     const validPass = await compare(req.body.password, user.password);
